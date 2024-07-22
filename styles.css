@@ -1,0 +1,456 @@
+
+body{
+    margin: 0;
+}
+
+*{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: #b7b6b629;
+    background-image: 
+        linear-gradient(90deg, transparent 5%, rgba(0, 0, 0, 0.1) 5%, rgba(22, 18, 18, 0.1) 10%, transparent 10%),
+
+        linear-gradient(0deg, transparent 5%, rgba(0, 0, 0, 0.1) 5%, rgba(0, 0, 0, 0.1) 10%, transparent 10%);
+    background-size: 20px 20px; 
+    & nav{
+        
+    
+        & ul{
+            display: flex;
+            justify-content: space-around;
+           
+            & li{
+                margin: 0 10px;
+                list-style-type: none;
+
+                & a{
+                    text-decoration: none ;
+                    font-size: 24px;
+                    color: rgb(38, 74, 118);;
+                    
+                } 
+            }
+        }
+    }
+    button{
+        color: rgb(38, 74, 118);
+        font-size: 18px;
+        font-weight: 500;
+        border: none;
+        background: repeating-linear-gradient(45deg, #9dcde3c8, 
+        #82b2babd 5px, #c4eaf964 5px, #8cb9cb8c 10px);
+        border-radius: 12px;
+    }
+}
+
+main{
+    /* მთავარი გვერდი - სათაური */
+    padding: 0 150px;
+    background-color: #ff0505b6;
+   & .mainSection{
+    padding: 20px;
+        background: linear-gradient(90deg, rgba(54, 95, 95, 0.519) 9%, rgba(36, 72, 116, 0.771) 100%), url("./images/main-Background.png") ;
+        background-size: cover;
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: repeat(8, 1fr);
+            
+        & h1{
+                color: #fff;
+                font-size: 50px;
+                letter-spacing: 0.12cap; 
+          
+            }
+            .track {
+                grid-area: 1 / 4;
+              }
+              
+              .your {
+                grid-area: 2 / 5 / 3 / 6;
+              }
+              
+              .progress {
+                grid-area: 3 / 6 / 4 / 7;
+              }
+           
+    }
+
+
+    /* სექცია სადაც ვნახულობთ შედეგებს კალენდრის მიხედვით */
+& .controlProgressSection{
+    background-color: #82b2babd;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    
+    & >div{
+        width: 100%;
+        display: flex;
+        justify-content: space-between; 
+    }
+
+    & h1{
+        color: #fff;
+        font-size: 34px;
+        font-weight: 700;
+    }
+
+    & button{
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        background-color: #477982e2;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+
+
+/* აქ ვამატებთ ექთივითებს */
+& .activitySection{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+  
+    /* background-color: #577b8959; */
+  
+
+
+    & .MealPlan{
+        background-color: #345a698c;
+    }
+    & .DailyPlan{
+        background-color: #0232448c;
+    }
+
+    & > div{
+       min-height: 400px;
+
+        
+    }
+
+    & .add{
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        background-color: #477982e2;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        width: 100%;
+    }
+
+
+
+    & .phisicalActivity{
+    
+        & .submittedActivitySection,
+        & .doneActivities{
+            background-color: #FFFEC4; 
+          
+       & .mainSubmition{   
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 15px;
+        border-bottom: solid gray 1px;
+        
+
+                & .checkDiv{
+                    display: flex;
+                    border-bottom:  solid #023244e5 1px;
+                    align-items: flex-end;
+                   
+               
+                    & .formactivity{
+                        display: inline;
+                        width: 100%;
+/
+                    & input[type="checkbox"]{
+                        color: #023244e5;
+                        margin: 10px;
+                    }
+                }
+                  & .activityName {
+                        color: #023244e5;
+                        font-size: 20px;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                        margin: 0 10px ;
+
+                    }
+                }
+              
+      
+                & .middiv {
+                    width: 200px;
+                    height: 1px;
+                    border: solid #023244e5 1px;
+                    border-style: dotted
+                }
+
+                        & .reps{
+                         display: flex;
+                            
+                            & .minDiv,
+                            & .qtyDiv{
+                                /* border-radius: 15px; */
+                                margin: 0 10px; 
+                                /* padding: 10px; */
+                                font-size: 24px;
+                                font-weight: 600;
+                                /* border: solid #023244e5 1px; */
+                                border-bottom:  solid #023244e5 1px;
+                               
+                            }
+                                           
+                }
+            }
+            & .Headername {
+                color: #fd5214;;
+                font-size: 20px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                margin: 0 10px ;
+
+            }
+        }
+   
+
+& .addPhisicalActivity,
+.doneActivities{
+
+    padding: 20px;
+    border-radius: 12px;
+    background-color: rgb(243, 243, 188);
+    display: flex;
+    justify-content: center;
+
+            & label,
+            & input,
+            & select,
+            & option
+            {
+           padding: 10px;
+           margin: 10px;
+           border-radius: 12px;
+           border: none;
+           background-color: beige;
+           color: #023244e5;
+           font-weight: 700;
+           border:solid #fd7e14 1px;
+           width: 100%;
+           
+            }
+
+            & label{
+                background-color:   #fd7e14;
+            }
+
+            & form{
+                background-color: #FFF8E3;
+                border-radius: 12px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                & .WarningDiv{
+                    display: none;
+                    align-items: center;
+                    
+
+                    & .warningImg{
+                        width:20px;
+                        margin-right: 5px;
+                    
+
+                    }
+                    & .warningMsg{
+                        color: #fc0808;
+                        font-weight: 700;
+                        margin: 0;
+
+                    }
+
+                }
+            
+            }
+
+          
+    }
+  
+& .progressinPerCent{
+    background-color: #fd7e14;
+    color: #fff;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+}
+}
+@media (max-width: 420px) {
+    header{
+        display: flex
+    }
+    .activitySection {
+        grid-template-columns: repeat(1, 1fr); 
+    }
+}
+
+}
+
+
+@property --progress {
+    syntax: "<length-percentage>";
+    inherits: false;
+    initial-value: 0%;
+  }
+  
+  [role="progressbar"] {
+    --size: 132px;
+    --bar-width: 20px;
+  
+    font-size: 2rem;
+    width: var(--size);
+    aspect-ratio: 1 / 1;
+    margin: 2rem auto;
+    background: conic-gradient(
+      var(--color-dark),
+      var(--color-dark) var(--progress),
+      var(--color-dark-glare) 0%
+    );
+    border-radius: 50vmax;
+  
+    display: grid;
+    place-items: center;
+    transition: --progress 500ms linear;
+    > span {
+      display: none;
+    }
+  }
+  
+  [role="progressbar"]::after {
+    content: attr(aria-valuenow) "%";
+    background: white;
+    width: calc(100% - var(--bar-width));
+    aspect-ratio: 1;
+    border-radius: inherit;
+    display: grid;
+    place-items: center;
+  }
+  
+  [role="progressbar"][aria-valuenow="100"]::after {
+    animation: progressComplete 0s forwards;
+    animation-delay: 1000ms;
+  }
+  
+  @keyframes progressComplete {
+    to {
+      content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUiIGhlaWdodD0iODUiIHZpZXdCb3g9IjUgMzAgNzUgMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0zNS40MjM3IDUzLjczMjdMNjcuOTc4NyAyMS4xNzc3TDcyLjk4OTUgMjYuMTg0MkwzNS40MTk1IDYzLjc1TDEyLjg4NiA0MS4yMTIyTDE3Ljg5MjUgMzYuMjAxNUwzNS40MjM3IDUzLjczMjdaIiBmaWxsPSIjMWYxYTM4Ii8+Cjwvc3ZnPgo=");
+      background: var(--color-success);
+    }
+  }
+
+  .progressbar:not([role="progressbar"]) {
+    position: relative;
+    &::after {
+      display: none;
+    }
+    span {
+      font-size: 1rem;
+      text-align: center;
+      color: var(--color-success-dark);
+    }
+  }
+  
+  @layer general-styling-and-whatnot {
+    :root {
+      --font-base: "Space Mono", monospace;
+      --color-dark: #1f1a38;
+      --color-dark-glare: #989ea9;
+      --color-success: #76f7bf;
+      --color-success-dark: #2d7a59;
+    }
+  
+    * {
+      box-sizing: border-box;
+    }
+  
+   
+  }
+  .submittedHeader{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .remove img{
+    color: red;
+    font-weight: bolder;
+    width: 25px;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  .addtasks img{
+    color: green;
+    font-weight: bolder;
+    width: 25px;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  .add_remove_icons{
+    display: flex;
+  }
+
+
+  .activityDiv{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .activities{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border: solid green 1px;
+    border-radius: 10px;
+    margin: 5px 5px 5px 15px;
+    justify-content: space-between;
+    padding: 5px;
+  }
+
+  .selectForDeletion{
+  background-color: #2d7a59;
+}
+
+  .submitActivity{
+    width: 100%;
+  }
+
+.actName{
+  width: 300px;
+  border-right: solid green 3px;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+

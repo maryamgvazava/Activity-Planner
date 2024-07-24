@@ -13,7 +13,7 @@
 <main>
     <section class="mainSection">
         <h1 class="track">TRACK</h1>
-        <h1  class="your">YOUR</h1>
+        <h1  class="yours">YOUR</h1>
         <h1  class="progress">PROGRESS</h1>
 
     </section>
@@ -40,7 +40,7 @@
           
           <form action="" id="formsec">
             <label for="activityInput">Enter Phisical Activity/Title</label>
-            <input type="text" name="" id="activityInput" placeholder="Enter Activity/Title">
+            <input type="text" name="" id="activityInput" maxlength="15" placeholder="Enter Activity/Title">
              <br>
              <p class="errorMsg" style="color: red; font-size: 14px;display: none; ">Please Enter title</p>
              <div class="detailedActs">
@@ -84,11 +84,53 @@
 
 
 
-
       </div>
 
       <div class="MealPlan">
         <button  class="add">+ Add Meal Plan</button>
+
+
+                                            <div class="addMealPlan">
+                                              
+                                              <form action="" id="formsec ">
+                                                <label for="activityInput">Enter Meal Plan Title</label>
+                                                <input type="text" name="" id=" mealInput " maxlength="15" placeholder="Enter Activity/Title">
+                                                <br>
+                                                <p class=" mealErrorMsg " style="color: red; font-size: 14px;display: none; ">Please Enter title</p>
+                                                <div class=" detailedMealPlan">
+
+                                                </div>
+
+                                                <br>
+                                                <button type="submit" class="btn btn-warning" id="submitMeal">submit</button>
+                                                
+                                              </form>
+
+
+
+                                            
+                                            
+                                            </div>
+                                            <div class="submittedMealSection"></div>
+                                            <div 
+                                            style="font-size: 24px; 
+                                            font-weight: 700; 
+                                            color: green;
+                                            background-color: orangered;">Done ✔</div>
+                                            <div class="doneMeals"></div>
+                                            
+                                            <!-- progressbar -->
+                                            
+                                            <div class="mealProgressbar">
+                                            
+                                            </div>
+
+
+
+
+
+
+
        
       </div>
 

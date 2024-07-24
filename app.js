@@ -3,14 +3,28 @@ const submit = document.querySelector('#submit');
 const detailedActs = document.querySelector('.detailedActs');
 const errorMsg = document.querySelector('.errorMsg')
 const progressbar = document.querySelector('.progressbar');
+const addMealPlan = document.querySelector('.addMealPlan')
+const mealInput = document.querySelector('.mealInput');
+const mealErrorMsg = document.querySelector('.mealErrorMsg');
+const detailedMealPlan = document.querySelector('.detailedMealPlan');
+const submitMeal = document.querySelector('.submitMeal');
+const submittedMealSection = document.querySelector('.submittedMealSection');
+const doneMeals = document.querySelector('.doneMeals')
+
+
 
 let countAddedActivities = 0;
 let countDoneActivities = 0;
+let countAddMealPlan = 0;
+let countDoneMealPlan = 0;
+
+
+
+
+
+
 function updateProgressPercent() {
-  const progress = (countDoneActivities * 100) / countAddedActivities;
-
- 
-
+const progress = (countDoneActivities * 100) / countAddedActivities;
   return Math.trunc(progress)
 }
 function enableProgressBar() {
@@ -58,56 +72,82 @@ submit.addEventListener('click', function(e) {
           addActivity.addEventListener('click', function() {
             // addActivity.disabled = true;
             // deleteActivity.disabled = true;
-
+            
             let activity = document.createElement('div');
             activity.classList.add('activities');
           
             activity.innerHTML = `
-              <input class="subActivity" placeholder="Enter Activity Name">
-              <select class="selectRepeatnumber">
-                <option value="" selected disabled>amount of reps</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="130">130</option>
-                <option value="104">104</option>
-              </select>
-              <select class="qty">
-                <option value="" selected disabled>duration of reps</option>
-                <option value="min">min</option>
-                <option value="qty">reps</option>
-              </select>
+              <input type ="text" maxlength="10" class="subActivity" placeholder="Enter Activity Name">
+                <input type ="number" min="1" class="selectRepeatnumber" placeholder="amount of reps">
+              <input maxlength="10"  class="qty" placeholder="duration">
               <button class="btn btn-success submitActivity">submit Activity</button>
             `;
 
             activityDiv.appendChild(activity);
             let submitActivityButton = activity.querySelector('.submitActivity');
-
+            submitActivityButton.disabled = true
 
                    // სავარჯიშოს დეტალების შეყვანის დროს
-                    submitActivityButton.addEventListener('click', function(e) {
-                      e.preventDefault();
-                     countAddedActivities++;
-                     enableProgressBar()
+              
+            
+                    let subActivityInput = activity.querySelector('.subActivity');
+                    let selectRepeatnumberInput = activity.querySelector('.selectRepeatnumber');
+                    let qtyInput = activity.querySelector('.qty');
 
-                      submit.style.display = 'block';
-                      submitActivityButton.disabled = false;
-                      let subActivity = activity.querySelector('.subActivity').value;
-                      let selectRepeatnumber = activity.querySelector('.selectRepeatnumber').value;
-                      let qty = activity.querySelector('.qty').value;
 
+
+                                subActivityInput.addEventListener('keyup', () => {enterFullActivity(subActivityInput ); manageSubmitButton()})
+                                selectRepeatnumberInput.addEventListener('input',() => {enterFullActivity(selectRepeatnumberInput ); manageSubmitButton()})
+                                qtyInput.addEventListener('keyup',() => {enterFullActivity(qtyInput ); manageSubmitButton()})
+                                          function enterFullActivity(input){
+                                            if (input.type === 'number') {
+                                              if (input.value.trim() !== '' && !isNaN(input.value) && Number(input.value) > 0) {
+                                                input.style.border = 'solid black 1px';
+                                                errorMsg.style.display = 'none';
+                                              } else {
+                                                errorMsg.style.display = 'block';
+                                                input.style.border = 'solid red 1px';
+                                              }
+                                            } else {
+                                              if (input.value.trim().length > 3) {
+                                                input.style.border = 'solid black 1px';
+                                                errorMsg.style.display = 'none';
+                                              } else {
+                                                errorMsg.style.display = 'block';
+                                                input.style.border = 'solid red 1px';
+                                              }
+                                            }
+                                          }
+                                          function manageSubmitButton() {
+              if(subActivityInput.value.trim().length > 3 && selectRepeatnumberInput.value.trim() !== '' && !isNaN(selectRepeatnumberInput.value) && Number(selectRepeatnumberInput.value) > 0 && qtyInput.value.trim().length > 3 ) {
+                                    submitActivityButton.disabled = false
+                                  } else {
+                                    submitActivityButton.disabled = true
+                                  }
+
+                                }
+
+                                submitActivityButton.addEventListener('click', function(e) {
+                                  e.preventDefault();
+            
+                      countAddedActivities++;
+                      enableProgressBar();
+            
+                      let subActivity = subActivityInput.value;
+                      let selectRepeatnumber = selectRepeatnumberInput.value;
+                      let qty = qtyInput.value;
+            
                       activity.innerHTML = `
-                      <div class="actName">  
-                        <p4>${subActivity}</p4>
-                      </div> 
-                      <div class="repsDiv" style="display:flex; flex-wrap:nowrap"> 
+                        <div class="actName">  
+                          <p4>${subActivity}</p4>
+                        </div> 
+                        <div class="repsDiv" style="display:flex; flex-wrap:nowrap"> 
                           <h4>${selectRepeatnumber} </h4>
                           <h4>${qty}</h4>
                         </div>
                         <input class="checked" type="checkbox" style="width:20px; height:20px">
                       `;
-
-                      activity.style.flexWrap = "nowrap";
-
+                             
 
                       //სავარჯიშოს შესრულებულად მონიშვნა
                       const doneActivities = document.querySelector('.doneActivities');
@@ -162,13 +202,6 @@ submit.addEventListener('click', function(e) {
 
                     });
           })
-
-
-
-      deleteActivity.addEventListener('click', function() {
-        detailedActs.removeChild(activityDiv);
-        submit.style.display = 'block';
-      });
     }
   activityInput.value = '';
 });

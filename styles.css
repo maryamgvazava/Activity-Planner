@@ -18,27 +18,29 @@ header{
 
         linear-gradient(0deg, transparent 5%, rgba(0, 0, 0, 0.1) 5%, rgba(0, 0, 0, 0.1) 10%, transparent 10%);
     background-size: 20px 20px; 
-    & nav{
-        
-    
-        & ul{
-            display: flex;
-            justify-content: space-around;
-           
-            & li{
-                margin: 0 10px;
-                list-style-type: none;
-
-                & a{
-                    text-decoration: none ;
-                    font-size: 24px;
-                    color: rgb(38, 74, 118);;
-                    
-                } 
-            }
-        }
+  }
+   
+   
+   ul{
+     display: flex;
+      justify-content: space-around;
+    }   
+    li{
+       margin: 0 10px;
+      list-style-type: none;
     }
-    button{
+              
+    a{
+   text-decoration: none ;
+    font-size: 24px;
+    color: rgb(38, 74, 118);;             
+    } 
+            
+        
+  
+    .res,
+    .calendar,
+    .currentDate{
         color: rgb(38, 74, 118);
         font-size: 18px;
         font-weight: 500;
@@ -47,64 +49,65 @@ header{
         #82b2babd 5px, #c4eaf964 5px, #8cb9cb8c 10px);
         border-radius: 12px;
     }
-}
+
 
 main{
     /* მთავარი გვერდი - სათაური */
     padding: 0 150px;
     background-color: #ff0505b6;
-   & .mainSection{
+
+  }
+.mainSection{
     padding: 20px;
-        background: linear-gradient(90deg, rgba(54, 95, 95, 0.519) 9%, rgba(36, 72, 116, 0.771) 100%), url("./images/main-Background.png") ;
-        background-size: cover;
-            display: grid;
-            grid-template-rows: repeat(3, 1fr);
-            grid-template-columns: repeat(8, 1fr);
-            
-        & h1{
-                color: #fff;
-                font-size: 50px;
-                letter-spacing: 0.12cap; 
+    background: linear-gradient(90deg, rgba(54, 95, 95, 0.519) 9%, rgba(36, 72, 116, 0.771) 100%), url("./images/main-Background.png") ;
+    background-size: cover;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+}     
+h1{
+color: #fff;
+ font-size: 50px;
+letter-spacing: 0.12cap; 
           
-            }
-            .track {
-                grid-area: 1 / 4;
-              }
+ }
+.track {
+grid-area: 1 / 4;
+}
               
-              .your {
-                grid-area: 2 / 5 / 3 / 6;
-              }
+ .yours {
+  grid-area: 2 / 5;
+}
               
-              .progress {
-                grid-area: 3 / 6 / 4 / 7;
-              }
+.progress {
+grid-area: 3 / 7;
+}
            
-    }
 
 
     /* სექცია სადაც ვნახულობთ შედეგებს კალენდრის მიხედვით */
-& .controlProgressSection{
+    .controlProgressSection {
     background-color: #82b2babd;
     padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+}
     
-    & >div{
+.controlProgressSection > div{
         width: 100%;
         display: flex;
         justify-content: space-between; 
     }
 
-    & h1{
+    .controlProgressSection > div h1{
         color: #fff;
         font-size: 34px;
         font-weight: 700;
     }
 
-    & button{
+    .controlProgressSection > div button{
         border: none;
         padding: 10px;
         border-radius: 6px;
@@ -113,34 +116,27 @@ main{
         font-size: 14px;
         font-weight: 500;
     }
-}
 
 
 
 /* აქ ვამატებთ ექთივითებს */
-& .activitySection{
+.activitySection{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
-  
-    /* background-color: #577b8959; */
-  
-
-
-    & .MealPlan{
+}
+.MealPlan{
         background-color: #345a698c;
     }
-    & .DailyPlan{
+.DailyPlan{
         background-color: #0232448c;
     }
 
-    & > div{
-       min-height: 400px;
-
-        
+    .DailyPlan > div{
+       min-height: 400px;       
     }
 
-    & .add{
+    .DailyPlan, .add{
         border: none;
         padding: 10px;
         border-radius: 6px;
@@ -153,36 +149,38 @@ main{
 
 
 
-    & .phisicalActivity{
+
     
-        & .submittedActivitySection,
-        & .doneActivities{
+        .submittedActivitySection,
+        .doneActivities,
+        .doneMeals,
+        .submittedMealSection{
             background-color: #FFFEC4; 
-          
-       & .mainSubmition{   
+        }
+     .mainSubmition{   
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
         padding: 15px;
         border-bottom: solid gray 1px;
-        
+     }
 
-                & .checkDiv{
+               .checkDiv{
                     display: flex;
                     border-bottom:  solid #023244e5 1px;
                     align-items: flex-end;
                    
-               
-                    & .formactivity{
+               }
+                  .formactivity{
                         display: inline;
                         width: 100%;
-/
-                    & input[type="checkbox"]{
+                  }
+                   input[type="checkbox"]{
                         color: #023244e5;
                         margin: 10px;
                     }
-                }
-                  & .activityName {
+               
+             .activityName {
                         color: #023244e5;
                         font-size: 20px;
                         font-weight: 600;
@@ -190,34 +188,30 @@ main{
                         margin: 0 10px ;
 
                     }
-                }
+               
               
       
-                & .middiv {
+              .middiv {
                     width: 200px;
                     height: 1px;
                     border: solid #023244e5 1px;
                     border-style: dotted
                 }
 
-                        & .reps{
+                      .reps{
                          display: flex;
-                            
-                            & .minDiv,
-                            & .qtyDiv{
-                                /* border-radius: 15px; */
+                      }
+                          .minDiv,
+                          .qtyDiv{
                                 margin: 0 10px; 
-                                /* padding: 10px; */
                                 font-size: 24px;
                                 font-weight: 600;
-                                /* border: solid #023244e5 1px; */
                                 border-bottom:  solid #023244e5 1px;
                                
                             }
                                            
-                }
-            }
-            & .Headername {
+          
+         .Headername {
                 color: #fd5214;;
                 font-size: 20px;
                 font-weight: 600;
@@ -225,22 +219,24 @@ main{
                 margin: 0 10px ;
 
             }
-        }
+     
    
 
-& .addPhisicalActivity,
-.doneActivities{
+ .addPhisicalActivity,
+ .doneActivities,
+ .doneMeals,
+ .addMealPlan{
 
     padding: 20px;
     border-radius: 12px;
     background-color: rgb(243, 243, 188);
     display: flex;
     justify-content: center;
-
-            & label,
-            & input,
-            & select,
-            & option
+ }
+            label,
+            input,
+            select,
+            option
             {
            padding: 10px;
            margin: 10px;
@@ -254,44 +250,37 @@ main{
            
             }
 
-            & label{
+           label{
                 background-color:   #fd7e14;
             }
 
-            & form{
+          form{
                 background-color: #FFF8E3;
                 border-radius: 12px;
                 padding: 10px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-
-                & .WarningDiv{
+          }
+             .WarningDiv{
                     display: none;
                     align-items: center;
-                    
+             }
 
-                    & .warningImg{
+                   .warningImg{
                         width:20px;
                         margin-right: 5px;
                     
 
                     }
-                    & .warningMsg{
+                  .warningMsg{
                         color: #fc0808;
                         font-weight: 700;
                         margin: 0;
 
                     }
 
-                }
-            
-            }
-
-          
-    }
-  
-& .progressinPerCent{
+ .progressinPerCent{
     background-color: #fd7e14;
     color: #fff;
     font-size: 24px;
@@ -302,8 +291,6 @@ main{
 
 
 
-}
-}
 @media (max-width: 420px) {
     header{
         display: flex
@@ -313,7 +300,7 @@ main{
     }
 }
 
-}
+
 
 
 @property --progress {
@@ -322,10 +309,10 @@ main{
     initial-value: 0%;
   }
   
-  [role="progressbar"] {
+  [role="progressbar"], 
+  [mealRole= 'mealProgressbar'] {
     --size: 132px;
     --bar-width: 20px;
-  
     font-size: 2rem;
     width: var(--size);
     aspect-ratio: 1 / 1;
@@ -336,7 +323,6 @@ main{
       var(--color-dark-glare) 0%
     );
     border-radius: 50vmax;
-  
     display: grid;
     place-items: center;
     transition: --progress 500ms linear;
@@ -354,8 +340,43 @@ main{
     display: grid;
     place-items: center;
   }
+
+
+  [mealRole= 'mealProgressbar']::after {
+    content: attr(aria-mealvalue) "%";
+    background: white;
+    width: calc(100% - var(--bar-width));
+    aspect-ratio: 1;
+    border-radius: inherit;
+    display: grid;
+    place-items: center;
+  }
+
+  [role="progressbar"]::after {
+    content: attr(aria-valuenow) "%";
+    background: white;
+    width: calc(100% - var(--bar-width));
+    aspect-ratio: 1;
+    border-radius: inherit;
+    display: grid;
+    place-items: center;
+  }
+  [mealRole= 'mealProgressbar']::after {
+    content: attr(aria-mealvalue) "%";
+    background: white;
+    width: calc(100% - var(--bar-width));
+    aspect-ratio: 1;
+    border-radius: inherit;
+    display: grid;
+    place-items: center;
+  }
   
   [role="progressbar"][aria-valuenow="100"]::after {
+    animation: progressComplete 0s forwards;
+    animation-delay: 1000ms;
+  }
+
+  [mealRole= 'mealProgressbar'][aria-mealvalue="100"]::after {
     animation: progressComplete 0s forwards;
     animation-delay: 1000ms;
   }
@@ -379,6 +400,20 @@ main{
     }
   }
   
+
+
+
+  .Mealprogressbar:not([mealRole= 'mealProgressbar']) {
+    position: relative;
+    &::after {
+      display: none;
+    }
+    span {
+      font-size: 1rem;
+      text-align: center;
+      color: var(--color-success-dark);
+    }
+  }
   @layer general-styling-and-whatnot {
     :root {
       --font-base: "Space Mono", monospace;

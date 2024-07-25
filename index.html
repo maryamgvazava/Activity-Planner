@@ -94,10 +94,10 @@
                                               
                                               <form action="" id="formsec ">
                                                 <label for="activityInput">Enter Meal Plan Title</label>
-                                                <input type="text" name="" id=" mealInput " maxlength="15" placeholder="Enter Activity/Title">
+                                                <input type="text" name="" id="mealInput" maxlength="15" placeholder="Enter Activity/Title">
                                                 <br>
-                                                <p class=" mealErrorMsg " style="color: red; font-size: 14px;display: none; ">Please Enter title</p>
-                                                <div class=" detailedMealPlan">
+                                                <p class="mealErrorMsg" style="color: red; font-size: 14px;display: none; ">Please Enter title</p>
+                                                <div class="detailedMealPlan">
 
                                                 </div>
 
@@ -134,8 +134,52 @@
        
       </div>
 
-      <div class="DailyPlan">
-        <button  class="add">+ Add Daily Plan</button>
+      <div class="dailyPlan">
+        <button  class="add">+ Add Meal Plan</button>
+
+
+                                            <div class="addDailyPlan">
+                                              
+                                              <form action="" id="formsec ">
+                                                <label for="activityInput">Enter Meal Plan Title</label>
+                                                <input type="text" name="" id="dailyPlanInput" maxlength="15" placeholder="Enter Activity/Title">
+                                                <br>
+                                                <p class="dailyPlanErrorMsg" style="color: red; font-size: 14px;display: none; ">Please Enter title</p>
+                                                <div class="detailedDailyPlan">
+
+                                                </div>
+
+                                                <br>
+                                                <button type="submit" class="btn btn-warning" id="submitDailyPlan">submit</button>
+                                                
+                                              </form>
+
+
+
+                                            
+                                            
+                                            </div>
+                                            <div class="submittedMealSection"></div>
+                                            <div 
+                                            style="font-size: 24px; 
+                                            font-weight: 700; 
+                                            color: green;
+                                            background-color: orangered;">Done ✔</div>
+                                            <div class="doneDailyPlans"></div>
+                                            
+                                            <!-- progressbar -->
+                                            
+                                            <div class="dailyPlanProgressbar">
+                                            
+                                            </div>
+
+
+
+
+
+
+
+       
       </div>
 
     </section>
@@ -153,5 +197,7 @@
 
 
 <script src="app.js"></script>
+<script src="meals.js"></script>
+<script src="daily.js"></script>
   </body>
 </html>

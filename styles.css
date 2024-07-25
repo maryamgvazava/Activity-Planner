@@ -154,6 +154,7 @@ grid-area: 3 / 7;
         .submittedActivitySection,
         .doneActivities,
         .doneMeals,
+        .doneDailyPlans,
         .submittedMealSection{
             background-color: #FFFEC4; 
         }
@@ -225,6 +226,8 @@ grid-area: 3 / 7;
  .addPhisicalActivity,
  .doneActivities,
  .doneMeals,
+ .doneDailyPlans,
+ .addDailyPlan,
  .addMealPlan{
 
     padding: 20px;
@@ -310,7 +313,8 @@ grid-area: 3 / 7;
   }
   
   [role="progressbar"], 
-  [mealRole= 'mealProgressbar'] {
+  [mealRole= 'mealProgressbar'],
+  [dailyPlanRole= 'dailyPlanProgressbar'] {
     --size: 132px;
     --bar-width: 20px;
     font-size: 2rem;
@@ -352,6 +356,17 @@ grid-area: 3 / 7;
     place-items: center;
   }
 
+
+  [dailyPlanRole= 'dailyPlanProgressbar']::after {
+    content: attr(aria-dailyPlanValue) "%";
+    background: white;
+    width: calc(100% - var(--bar-width));
+    aspect-ratio: 1;
+    border-radius: inherit;
+    display: grid;
+    place-items: center;
+  }
+
   [role="progressbar"]::after {
     content: attr(aria-valuenow) "%";
     background: white;
@@ -370,6 +385,17 @@ grid-area: 3 / 7;
     display: grid;
     place-items: center;
   }
+
+
+  [dailyPlanRole= 'dailyPlanProgressbar']::after {
+    content: attr(aria-dailyPlanValue) "%";
+    background: white;
+    width: calc(100% - var(--bar-width));
+    aspect-ratio: 1;
+    border-radius: inherit;
+    display: grid;
+    place-items: center;
+  }
   
   [role="progressbar"][aria-valuenow="100"]::after {
     animation: progressComplete 0s forwards;
@@ -380,6 +406,13 @@ grid-area: 3 / 7;
     animation: progressComplete 0s forwards;
     animation-delay: 1000ms;
   }
+
+  [dailyPlanRole= 'dailyPlanProgressbar'][aria-dailyPlanValue="100"]::after {
+    animation: progressComplete 0s forwards;
+    animation-delay: 1000ms;
+  }
+  
+
   
   @keyframes progressComplete {
     to {

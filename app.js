@@ -3,20 +3,12 @@ const submit = document.querySelector('#submit');
 const detailedActs = document.querySelector('.detailedActs');
 const errorMsg = document.querySelector('.errorMsg')
 const progressbar = document.querySelector('.progressbar');
-const addMealPlan = document.querySelector('.addMealPlan')
-const mealInput = document.querySelector('.mealInput');
-const mealErrorMsg = document.querySelector('.mealErrorMsg');
-const detailedMealPlan = document.querySelector('.detailedMealPlan');
-const submitMeal = document.querySelector('.submitMeal');
-const submittedMealSection = document.querySelector('.submittedMealSection');
-const doneMeals = document.querySelector('.doneMeals')
+
 
 
 
 let countAddedActivities = 0;
 let countDoneActivities = 0;
-let countAddMealPlan = 0;
-let countDoneMealPlan = 0;
 
 
 

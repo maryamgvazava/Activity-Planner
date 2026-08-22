@@ -1,0 +1,27 @@
+{
+  "name": "georgia-land-marketplace",
+  "version": "1.0.0",
+  "description": "Collects land-for-sale and land-wanted listings from ss.ge, home.ge and Facebook, with filtering and buyer/land matching.",
+  "main": "server/index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "seed": "node scripts/seed.js",
+    "scrape:ssge": "node server/scrapers/ssge.js",
+    "scrape:homege": "node server/scrapers/homege.js",
+    "scrape:facebook": "node server/scrapers/facebook.js",
+    "scrape:all": "node server/scrapers/runAll.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cheerio": "^1.0.0",
+    "csv-parse": "^5.5.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "multer": "^2.0.1"
+  }
+}

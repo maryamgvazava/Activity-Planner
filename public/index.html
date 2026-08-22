@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Georgia Land Marketplace</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>🇬🇪 Georgia Land Marketplace</h1>
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="lands">Lands for Sale</button>
+      <button class="tab-btn" data-tab="buyers">People Who Want to Buy</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- LANDS FOR SALE -->
+    <section id="tab-lands" class="tab-panel active">
+      <form id="lands-filter" class="filter-bar">
+        <input type="text" name="location" placeholder="Location contains…" />
+        <input type="number" name="minPrice" placeholder="Min price" />
+        <input type="number" name="maxPrice" placeholder="Max price" />
+        <input type="number" name="minArea" placeholder="Min m²" />
+        <input type="number" name="maxArea" placeholder="Max m²" />
+        <input type="number" name="minPricePerM2" placeholder="Min price/m²" />
+        <input type="number" name="maxPricePerM2" placeholder="Max price/m²" />
+        <select name="sortBy">
+          <option value="createdAt">Newest</option>
+          <option value="price">Price</option>
+          <option value="areaM2">Area (m²)</option>
+          <option value="pricePerM2">Price per m²</option>
+          <option value="location">Location</option>
+        </select>
+        <select name="order">
+          <option value="desc">Desc</option>
+          <option value="asc">Asc</option>
+        </select>
+        <button type="submit">Filter</button>
+        <button type="button" id="lands-reset">Reset</button>
+      </form>
+
+      <div class="toolbar">
+        <button id="lands-add-btn">+ Add land manually</button>
+        <label class="import-btn">
+          Import CSV
+          <input type="file" id="lands-csv" accept=".csv" hidden />
+        </label>
+        <button id="run-ssge">Run ss.ge scrape</button>
+        <button id="run-homege">Run home.ge scrape</button>
+        <button id="run-facebook">Run Facebook ingest</button>
+        <span id="lands-status" class="status"></span>
+      </div>
+
+      <div class="table-wrap">
+        <table id="lands-table">
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>m²</th>
+              <th>Price</th>
+              <th>Price/m²</th>
+              <th>Cadastral code</th>
+              <th>Category</th>
+              <th>Owner</th>
+              <th>Phone</th>
+              <th>Source</th>
+              <th>Link</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- BUYERS -->
+    <section id="tab-buyers" class="tab-panel">
+      <form id="buyers-filter" class="filter-bar">
+        <input type="text" name="location" placeholder="Location contains…" />
+        <input type="number" name="minPrice" placeholder="Min price" />
+        <input type="number" name="maxPrice" placeholder="Max price" />
+        <input type="number" name="minArea" placeholder="Min m²" />
+        <input type="number" name="maxArea" placeholder="Max m²" />
+        <input type="number" name="minPricePerM2" placeholder="Min price/m²" />
+        <input type="number" name="maxPricePerM2" placeholder="Max price/m²" />
+        <select name="sortBy">
+          <option value="createdAt">Newest</option>
+          <option value="priceMax">Max price</option>
+          <option value="areaM2">Area (m²)</option>
+          <option value="location">Location</option>
+        </select>
+        <select name="order">
+          <option value="desc">Desc</option>
+          <option value="asc">Asc</option>
+        </select>
+        <button type="submit">Filter</button>
+        <button type="button" id="buyers-reset">Reset</button>
+      </form>
+
+      <div class="toolbar">
+        <button id="buyers-add-btn">+ Add buyer manually</button>
+        <label class="import-btn">
+          Import CSV
+          <input type="file" id="buyers-csv" accept=".csv" hidden />
+        </label>
+        <span id="buyers-status" class="status"></span>
+      </div>
+
+      <div class="table-wrap">
+        <table id="buyers-table">
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>m²</th>
+              <th>Price range</th>
+              <th>Advertiser</th>
+              <th>Phone</th>
+              <th>Source</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Generic modal used for add-forms and match results -->
+  <div id="modal-backdrop" class="modal-backdrop hidden">
+    <div class="modal">
+      <button id="modal-close" class="modal-close">&times;</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
